@@ -1,0 +1,1163 @@
+/* 
+========== Importation de la police Raleway sous différents styles =========== 
+*/
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/*===============================================================
+
+Ce code CSS est segmenté en trois sections : la première liste les règles générales ainsi que celles
+s'appliquant pour la version desktop, et les deux suivantes listent les règles spécifiques aux versions
+tablettes et mobiles respectivement. 
+Chaque section est elle-même découpée en plusieurs parties, la première correspondant aux règles générales
+de la page, et les autres étant liées aux différents blocs composant le site.
+À l'exception de la première partie qui liste des règles générales, les balises et classes sont appelées
+par ordre d'apparition dans le code HTML.
+
+===============================================================*/
+
+/*===============================================================
+
+Règles générales, version desktop
+
+===============================================================*/
+
+/* 1. Règles qui concernent l'ensemble de la page, sinon les éléments les plus importants */
+
+/* Définition de la police et règle box-sizing appliquées sur l'ensemble de la page */
+*
+{
+    font-family: 'Raleway', sans-serif;
+    box-sizing: border-box;
+}
+/* Marges latérales de la page (hors footer), dimensions calculées par rapport au ratio fourni par la maquette */
+header, main
+{
+    padding-left:3.6%;
+    padding-right:3.6%;
+}
+/* On enlève le soulignage (soulignement ? c'est un truc qui se dit ?) sur tous les liens */
+a
+{
+    text-decoration: none;
+}
+/* Définition de la taille du titre principal « Trouvez votre hébergement pour des vacances de rêve » */
+h1
+{
+    font-size:29px;
+    font-weight:700;
+    margin:2px 0px;
+}
+
+/* 2. Règles de la section Header */
+
+/* Propriété flexbox pour placer automatiquement le logo Booki à gauche et la barre de navigation à droite */
+header
+{
+    display:flex;
+    justify-content: space-between;
+    margin-bottom:50px;
+}
+/* Résolution et placement du logo Booki */
+#lien_booki
+{
+    display:block;
+    padding:0;
+}
+#logo_booki
+{
+    width:126px;
+    margin-top:57px;
+}
+/* On enlève les puces de la liste des boutons de navigation et on les met côte à côte avec flexbox */
+#navlist
+{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    list-style-type: none;
+}
+/* Définition de la taille de la police des boutons de navigation */
+.navbutton
+{
+    font-size:calc(15px + 0.313vw);
+    width:calc(142px + 3.750vw);
+    line-height: calc(70px + 1.563vw);
+    text-align:center;
+}
+/* Apparence des boutons en fonction de s'ils sont survolés ou non. Si non-survolés, on ajoute un padding-top de 3px qui
+sera transformé en border-top de 3px si survolés. */
+.navbutton, .navbutton:visited
+{
+    color:black;
+    font-weight:500;
+    padding-top:3px;
+}
+.navbutton:hover, .navbutton:active
+{
+    color:#0065FC;
+    font-weight:500;
+    border-top:#0065FC solid 3px;
+    padding-top:0px;
+}
+
+/* 3. Règles de la section formulaire */
+
+#pagetitle p
+{
+    font-size:calc(14px + 0.365vw);
+    margin-top:10px;
+    margin-bottom:26px;
+}
+/* Définition de la barre de recherche : chacun des éléments sera placé via flexbox */
+#searchbar
+{
+    display:flex;
+    width:560px;
+    height:68px;
+    position:relative;
+    box-sizing: content-box;
+}
+/* Apparence du bloc comprenant l'icone de localisation */
+#location
+{
+    width:68px;
+    text-align: center;
+    background-color: #f2f2f2;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    border-top-left-radius:20px;
+    border-bottom-left-radius:20px;
+}
+/* Apparence et taille de l'icone de localisation */
+#locationicon
+{
+    color:black;
+    font-size:24px;
+}
+/* Apparence et taille de la police de la barre de recherche */
+#searchinput, #searchtext
+{
+    font-weight: bold;
+    font-size:24px;
+}
+/* Apparence de la barre de recherche */
+#searchinput
+{
+    width:314px;
+    height:68px;
+    border-top:#f2f2f2 solid 2px;
+    border-bottom:#f2f2f2 solid 2px;
+    border-left:none;
+    border-right:none;
+    padding-left:22px;
+    padding-right:22px;
+}
+/* Apparence du bouton recherche comprenant le texte Rechercher */
+#searchtext
+{
+    color:white;
+}
+/* Apparence du bouton recherche comprenant l'icone, il est masqué par défaut et affiché sur mobile */
+#searchicon
+{
+    display:none;
+}
+#submitsearch
+{
+    background-color:#0065FC;
+    width:178px;
+    height:68px;
+    color:white;
+    border:none;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    border-top-right-radius:20px;
+    border-bottom-right-radius:20px;
+    height:100%;
+}
+/* La barre de filtres est une flexbox comprenant le titre « Filtres » et les boutons de filtres. */
+#filterbar
+{
+    display:flex;
+    flex-wrap:wrap;
+    margin-top:40px;
+}
+/* Il y a en réalité deux titres de filtres différents pour les versions bureau et tablette, et un pour la version mobile,
+ayant des comportements différents. */
+#filtertitledesktop
+{
+    font-size:24px;
+    margin-right:44px;
+}
+#filtertitlemobile
+{
+    font-size:18px;
+    margin-top:32px;
+    margin-left:4px;
+    margin-bottom:0px;
+    display:none;
+}
+/* Définition de la dimension des filtres et d'une marge les séparant */
+.filter
+{
+    height:66px;
+    margin-right:66px;
+    margin-bottom:20px;
+    display:flex;
+}
+/* Définition des blocs comprenant les icones de filtres. Position absolue et z-index pour que celui-ci se superpose au bloc
+comprenant le libellé du filtre. */
+.filtericon
+{
+    background-color:#DEEBFF;
+    color:#0065FC;
+    font-size:24px;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    width:66px;
+    height:66px;
+    border-radius:33px;
+    position:absolute;
+    z-index: 1;
+}
+/* Changement d'apparence si le bouton de lien est survolé. */
+.filterlink:hover > .filtericon
+{
+    background-color:#0065FC;
+    color:white;
+}
+/* Définition des blocs comprenant les libellés des filtres. */
+.filtername
+{
+    color:black;
+    font-size:24px;
+    font-weight:bold;
+    height:66px;
+    padding-left:50px;
+    padding-right:26px;
+    border-top: 3px solid #d9d9d9;
+    border-right: 3px solid #d9d9d9;
+    border-bottom: 3px solid #d9d9d9;
+    border-top-right-radius: 33px;
+    border-bottom-right-radius: 33px;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    margin-top:0px;
+    margin-bottom:0px;
+    position:relative;
+    left:33px;
+}
+/* Changement d'apparence si le bouton de lien est survolé. */
+.filterlink:hover > .filtername
+{
+    background-color: #DEEBFF;
+    color:#0065FC;
+    border-top:3px solid #0065FC;
+    border-bottom:3px solid #0065FC;
+    border-right:3px solid #0065FC;
+}
+/* Définition du bloc comprenant la ligne d'information en-dessous des filtres. */
+#filterinfo
+{
+    display:flex;
+    height:32px;
+    margin-top:14px;
+}
+/* Définition de l'icone d'information. */
+.infoicon
+{
+    color:#0065FC;
+    font-size:16px;
+    width:32px;
+    height:32px;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    border:2px solid #d9d9d9;
+    border-radius:16px;
+}
+/* Définition du texte d'information. */
+#filterinfo p
+{
+    margin:0px;
+    font-size:21px;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    margin-left:16px;
+}
+
+/* 4. Règles de la section Hébergements à Marseille */
+
+#allhousing
+{
+    display:flex;
+    justify-content: space-between;
+    margin-top:50px;
+    margin-bottom:40px;
+}
+#housing
+{
+    background-color: #f2f2f2;
+    border-radius:24px;
+    width:65.6%;
+    margin-right:50px;
+}
+#listallhousing
+{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding-left:23px;
+    padding-right:23px;
+}
+#populartitle
+{
+    display:flex;
+    justify-content: space-between;
+}
+#popular
+{
+    background-color: #f2f2f2;
+    border-radius:24px;
+    width:32%;
+    padding-left:3%;
+    padding-right:3%;
+}
+.fa-chart-line
+{
+    display:block;
+    font-size:29px;
+    margin-top:54px;
+    color:black;
+}
+#housing h2, #popular h2
+{
+    font-size:29px;
+    margin-top:54px;
+}
+#housing h2
+{
+    margin-left:52px;
+}
+#hebergementsmobile
+{
+    display:none;
+}
+.housinglink
+{
+    margin-bottom:40px;
+}
+.housingcard
+{
+    background-color:white;
+    padding:8px;
+    width:330px;
+    height:266px;       
+    border-radius:24px;
+    color:black;
+    box-shadow:0px 0px 8px 2px #d9d9d9;
+}
+#image_auberge_la_cannebiere, #image_hotel_du_port, #image_hotel_les_mouettes, #image_hotel_de_la_mer, #image_auberge_le_panier, #image_hotel_chez_amina
+{
+    width:100%;
+    height:60%;
+    object-fit:cover;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+}
+.housingcard h3
+{
+    font-size:calc(15.5px + 0.313vw);
+    margin:8px 14px 6px 14px;
+}
+.housingcard p
+{
+    margin:0px 16px;
+    font-size:calc(13.5px + 0.260vw);
+}
+.housingrating
+{
+    margin-left:15px;
+    margin-top:10px;
+    font-size:calc(12px + 0.208vw);
+}
+#morehousing
+{
+    font-weight:bold;
+    color:black;
+    display:block;
+    font-size:24px;
+    margin-top:14px;
+    margin-left:54px;
+    margin-bottom:50px;
+}
+.popularcard
+{
+    background-color:white;
+    padding:8px;
+    width:100%;
+    margin:auto;
+    margin-bottom:40px;
+    border-radius:24px;
+    color:black;
+    display:flex;
+    box-shadow:0px 0px 8px 2px #d9d9d9;
+    padding-top:43%;
+    position:relative;
+}
+.popularcard img, .popularlabel
+{
+    position:absolute;
+    top:0px;
+    bottom:0px;
+    left:0px;
+    right:0px;
+    margin:2%;
+}
+.popularlabel
+{
+    margin-left:40%;
+}
+#image_le_soleil_du_matin, #image_au_coeur_de_l_eau, #image_hotel_tout_bleu_et_blanc
+{
+    width:38.6%;
+    height:91%;
+    object-fit:cover;
+    border-top-left-radius: 16px;
+    border-bottom-left-radius: 16px;
+}
+.popularcard h3
+{
+    font-size:1.094vw;
+    margin:15px 12px 8px 1.458vw;
+    text-overflow: clip;
+}
+.popularcard p
+{
+    margin:0px 1.458vw;
+    font-size:0.964vw;
+}
+.popularrating
+{
+    margin-left:1.458vw;
+    margin-top:1.604vw;
+    font-size:0.833vw;
+}
+.starblue
+{
+    color:#0065FC;
+}
+.starwhite
+{
+    color:#d9d9d9;
+}
+
+/* 5. Règles de la section Activités à Marseille */
+
+#activites h2
+{
+    font-size:29px;
+}
+#activitesmobile
+{
+    display:none;
+}
+#allactivities
+{
+    display:flex;
+    flex-direction: column;
+    flex-wrap:wrap;
+    justify-content: space-between;
+    align-content: space-between;
+    height:600px;
+    width:100%;
+}
+.activitycard
+{
+    display:block;
+    width:22.5%;
+    background-color:white;      
+    border-radius:24px;
+    height:600px;
+    color:black;
+    box-shadow:0px 0px 8px 2px #d9d9d9;
+    margin:0;
+}
+.activitycard:nth-of-type(2)
+{
+    height:320px;
+}
+.activitycard:nth-of-type(3)
+{
+    height:220px;
+}
+.activitycard:nth-of-type(5)
+{
+    height:255px;
+}
+.activitycard:nth-of-type(6)
+{
+    height:285px;
+}
+#image_vieux_port, #image_notre_dame_de_la_garde, #image_parc_longchamp, #image_iles_du_frioul, #image_parc_national_des_calanques, #image_fort_de_pomegues
+{
+    width:100%;
+    height:calc(100% - 76px);
+    object-fit:cover;
+    border-top-left-radius: 24px;
+    border-top-right-radius: 24px;
+}
+.activitycard h3
+{
+    margin-left:5%;
+    font-size:calc(15px + 0.260vw);
+}
+
+/* 6. Règles du pied de page */
+
+footer
+{
+    background-color: #f2f2f2;
+    padding-left:3.6%;
+    padding-right:3.6%;
+    padding-top:50px;
+    padding-bottom:50px;
+    margin-top:50px;
+    display:flex;
+}
+footer div
+{
+    width:33%;
+}
+footer ul
+{
+    list-style-type: none;
+    padding-left:0;
+}
+footer li
+{
+    margin-top:15px;
+    margin-bottom:15px;
+}
+footer a
+{
+    color:black;
+    font-size:calc(16px + 0.260vw);
+}
+
+/*===============================================================
+
+Règles version tablette
+
+===============================================================*/
+
+@media screen and (min-width:769px) and (max-width: 992px) 
+{
+    /* 2. Règles de la section Header */
+
+    /* Réduction de la taille du logo Booki */
+    #logo_booki
+    {
+        width:113px;
+    }
+    .activitycard
+    {
+        width:30.5%;
+    }
+    .activitycard:nth-of-type(1), .activitycard:nth-of-type(4), .activitycard:nth-of-type(5)
+    {
+        height:285px;
+    }
+    .activitycard:nth-of-type(2), .activitycard:nth-of-type(3), .activitycard:nth-of-type(6)
+    {
+        height:255px;
+    }
+
+    /* 3. Règles de la section Formulaire */
+
+    #searchbar
+    {
+        width:480px;
+        height:54px;
+    }
+    #location
+    {
+        width:54px;
+    }
+    #locationicon
+    {
+        font-size:18px;
+    }
+    #searchinput, #searchtext
+    {
+        font-size:18px;
+    }
+    #searchinput
+    {
+        width:240px;
+        height:54px;
+    }
+    #submitsearch
+    {
+        width:140px;
+        height:54px;
+    }
+    #filterbar
+    {
+        display:flex;
+        flex-wrap:wrap;
+        margin-top:40px;
+    }
+    #filtertitledesktop
+    {
+        font-size:18px;
+    }
+    .filter
+    {
+        height:52px;
+        margin-right:52px;
+    }
+    .filtericon
+    {
+        font-size:18px;
+        width:52px;
+        height:52px;
+        border-radius:26px;
+    }
+    .filtername
+    {
+        font-size:18px;
+        height:52px;
+        padding-left:50px;
+        padding-right:26px;
+        border-top-right-radius: 26px;
+        border-bottom-right-radius: 26px;
+        left:26px;
+    }
+    #filterinfo
+    {
+        height:25px;
+    }
+    .infoicon
+    {
+        font-size:11px;
+        width:25px;
+        height:25px;
+        border-radius:12px;
+    }
+    #filterinfo p
+    {
+        font-size:15px;
+    }
+
+    /* 4. Règles de la section Hébergements */
+
+    #housing h2, #popular h2
+    {
+        font-size:22px;
+        margin-top:40px;
+    }
+    .fa-chart-line
+    {
+        font-size:22px;
+        margin-top:40px;
+    }
+    .housinglink
+    {
+        margin-bottom:24px;
+    }
+    .housingcard
+    {
+        background-color:white;
+        padding:5px;
+        width:198px;
+        height:160px;       
+        border-radius:15px;
+        color:black;
+        box-shadow:0px 0px 8px 2px #d9d9d9;
+    }
+    #image_auberge_la_cannebiere, #image_hotel_du_port, #image_hotel_les_mouettes, #image_hotel_de_la_mer, #image_auberge_le_panier, #image_hotel_chez_amina
+    {
+        width:100%;
+        height:60%;
+        object-fit:cover;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+    .housingcard h3
+    {
+        font-size:calc(11.5px + 0.313vw);
+        margin:5px 10px 4px 10px;
+    }
+    .housingcard p
+    {
+        margin:0px 11px;
+        font-size:calc(9.5px + 0.260vw);
+    }
+    .housingrating
+    {
+        margin-left:10px;
+        margin-top:6px;
+        font-size:calc(9px + 0.208vw);
+    }
+}
+
+/*===============================================================
+
+Règles version mobile
+
+===============================================================*/
+
+@media screen and (max-width: 768px) 
+{
+
+    /* 1. Règles qui concernent l'ensemble de la page, sinon les éléments les plus importants */
+
+    /* Ajout d'une marge en haut pour que le header de la page ne camoufle rien lorsque la fenêtre est au plus haut */
+    main
+    {
+        margin-top:calc(160px + 1.333vw);
+        padding-left:0;
+        padding-right:0;
+    }
+    /* Réduction du titre de la page */
+    h1
+    {
+        font-size:22px;
+        margin:10px 0px;
+    }
+
+    /* 2. Règles de la section Header */
+
+    /* On fixe le header en haut de la fenêtre et on lui attribue un fond blanc pour masquer ce qui passe en-dessous */
+    header
+    {
+        background-color: white;
+        flex-direction: column;
+        position:fixed;
+        top:0;
+        left:0;
+        right:0;
+        padding-top:22px;
+        padding-left:0;
+        padding-right:0;
+        z-index: 3;
+    }
+    /* Réduction de la taille du logo Booki, margin:auto pour le placer au centre de la fenêtre */
+    #logo_booki
+    {
+        width:96px;
+        margin-top:0;
+    }
+    #lien_booki
+    {
+        margin:auto;
+        padding:0;
+    }
+    /* Les boutons de navigation s'étendent sur toute la fenêtre. Définition de la police et de la bordure du bas. */
+    .navbutton
+    {
+        flex:1;
+        font-size:calc(11px + 1.333vw);
+        line-height: calc(25px + 4vw);
+        margin-top:calc(14px + 1.600vw);
+        padding-bottom:3px;
+        border-bottom:#f2f2f2 solid 3px;
+    }
+    /* On enlève le padding-top et le border-top, et on colore la border-bottom si les boutons sont survolés */
+    .navbutton, .navbutton:visited
+    {
+        padding-top:0px;
+    }
+    .navbutton:hover, .navbutton:active
+    {
+        border-bottom:#0065FC solid 3px;
+        border-top:none;
+    }
+
+    /* 3. Règles de la section formulaire */
+
+    #formsec
+    {
+        padding-left:4%;
+        padding-right:4%;
+    }
+    /* Réduction de la taille et placement du sous-titre */
+    #pagetitle p
+    {
+        font-size:16px;
+        margin-bottom:34px;
+    }
+    /* La barre de recherche prend désormais la largeur de la section */
+    #searchbar
+    {
+        width:100%;
+        height:52px;
+    }
+    /* Redéfinition de la taille du bouton de localisation */
+    #location
+    {
+        width:52px;
+        height:52px;
+        border-top-left-radius:15px;
+        border-bottom-left-radius:15px;
+    }
+    /* Redéfinition de la taille de l'icone de localisation */
+    #locationicon
+    {
+        font-size:17px;
+    }
+    /* Redéfinition de la taille du champ de recherche */
+    #searchinput
+    {
+        width:233px;
+        height:52px;
+        font-size:18px;
+        padding-right:17px;
+        border-top:#f2f2f2 solid 1px;
+        border-bottom:#f2f2f2 solid 1px;
+    }
+    /* On masque le bouton de recherche avec le texte et on affiche celui avec l'icone */
+    #searchtext
+    {
+        display:none;
+    }
+    #searchicon
+    {
+        display:flex;
+    }
+    #submitsearch
+    {
+        background-color:#0065FC;
+        width:52px;
+        height:52px;
+        color:white;
+        border:none;
+        justify-content: center;
+        align-items:center;
+        border-radius:15px;
+        position:relative;
+        left:-10px;
+    }
+    /* On enlève la marge haute */
+    #filterbar
+    {
+        margin-top:0px;
+    }
+    /* On affiche le titre mobile et on masque l'autre */
+    #filtertitledesktop
+    {
+        display:none;
+    }
+    #filtertitlemobile
+    {
+        display:block;
+    }
+    /* Redimensionnement des tailles des boutons de filtre */
+    .filter
+    {
+        height:50px;
+        margin-right:36px;
+        margin-top:10px;
+        margin-bottom:0px;
+    }
+    /* Redimensionnement de l'icone des boutons de filtres */
+    .filtericon
+    {
+        font-size:18px;
+        width:50px;
+        height:50px;
+        border-radius:25px;
+    }
+    /* Redimensionnement du libellé des boutons de filtres */
+    .filtername
+    {
+        font-size:16px;
+        height:50px;
+        padding-left:33px;
+        padding-right:18px;
+        border-top: 2px solid #d9d9d9;
+        border-right: 2px solid #d9d9d9;
+        border-bottom: 2px solid #d9d9d9;
+        border-top-right-radius: 25px;
+        border-bottom-right-radius: 25px;
+        left:25px;
+    }
+    /* Redimensionnement du bloc d'information sur les filtres */
+    #filterinfo
+    {
+        height:24px;
+        margin-top:34px;
+    }
+    /* Redimensionnement de l'icone d'information */
+    .infoicon
+    {
+        font-size:12px;
+        width:32px;
+        height:24px;
+        border:1px solid #d9d9d9;
+        border-radius:12px;
+    }
+    /* Redimensionnement du texte d'information */
+    #filterinfo p
+    {
+        font-size:16px;
+        padding-top:6px;
+        margin-left:12px;
+    }
+
+    /* Règles de la section Hébergements à Marseille */
+
+    #allhousing
+    {
+        flex-wrap: wrap-reverse;
+        justify-content: flex-start;
+    }
+    #housing, #popular
+    {
+        width:100%;
+        border-radius:0px;
+        padding-left:5%;
+        padding-right:5%;
+        padding-top:42px;
+    }
+    #housing h2, #popular h2
+    {
+        font-size:22px;
+        margin-top:0px;
+        margin-left:0px;
+    }
+    .fa-chart-line
+    {
+        display:block;
+        font-size:22px;
+        margin-top:0px;
+        margin-right:0px;
+        color:black;
+    }
+    .popularcard
+    {
+        background-color:white;
+        padding:8px;
+        width:100%;
+        min-width:unset;
+        height:0;
+        padding-top:43%;
+        position:relative;
+        margin:auto;
+        margin-bottom:40px;
+        border-radius:20px;
+        box-shadow:0px 0px 8px 2px #d9d9d9;
+    }
+    .popularcard img, .popularlabel
+    {
+        position:absolute;
+        top:0px;
+        bottom:0px;
+        left:0px;
+        right:0px;
+        margin:2%;
+    }
+    .popularcard h3
+    {
+        font-size:4.267vw;
+        margin:15px 12px 8px 50%;
+    }
+    .popularcard p
+    {
+        font-size:3.8vw;
+        margin:10px 12px 8px 50%;
+    }
+    .popularrating
+    {
+        margin:10.667vw 12px 8px 50%;
+    }
+    #image_le_soleil_du_matin, #image_au_coeur_de_l_eau, #image_hotel_tout_bleu_et_blanc
+    {
+        width:38.6%;
+        height:91%;
+        object-fit:cover;
+        border-top-left-radius: 16px;
+        border-bottom-left-radius: 16px;
+    }
+    #hebergementsmobile
+    {
+        display:block;
+    }
+    #hebergements
+    {
+        position:relative;
+        bottom:170px;
+        opacity:0;
+        margin:0;
+        padding:0;
+        width:0px;
+        height:0px;
+    }
+    #housing
+    {
+        background-color: white;
+        width:100%;
+        padding-left:5.3%;
+        padding-right:5.3%;
+        margin-right:0;
+    }
+    #listallhousing
+    {
+        padding-left:0;
+        padding-right:0;
+    }
+    .housinglink
+    {
+        width:100%;
+        margin-bottom:0;
+    }
+    .housingcard
+    {
+        background-color:white;
+        padding:8px;
+        width:100%;
+        height:0;
+        padding-top:58%;
+        position:relative;
+        margin:auto;
+        margin-bottom:40px;
+        border-radius:20px;
+        box-shadow:0px 0px 8px 2px #f2f2f2;
+    }
+    .housingcard img, .housingcard label
+    {
+        position:absolute;
+        top:0px;
+        bottom:0px;
+        left:0px;
+        right:0px;
+        margin:2%;
+    }
+    #image_auberge_la_cannebiere, #image_hotel_du_port, #image_hotel_les_mouettes, #image_hotel_de_la_mer, #image_auberge_le_panier, #image_hotel_chez_amina
+    {
+        width:96%;
+        height: 60%;
+        object-fit:cover;
+        border-top-left-radius: 16px;
+        border-top-right-radius: 16px;
+    }
+    .housingcard h3
+    {
+        font-size:4.267vw;
+        position:absolute;
+        bottom:10.667vw;
+    }
+    .housingcard p
+    {
+        font-size:3.8vw;
+        position:absolute;
+        bottom:7.2vw;
+    }
+    .housingrating, .popularrating
+    {
+        font-size:calc(12px + 0.208vw);
+        position:absolute;
+        bottom:2.4vw;
+    }
+    #morehousing
+    {
+        font-weight:bold;
+        color:black;
+        display:block;
+        font-size:18px;
+        margin-top:0;
+        margin-left:0;
+        margin-bottom:30px;
+    }
+
+    /* 5. Règles de la section Activités à Marseille */
+
+    #activitesmobile
+    {
+        display:block;
+    }
+    #activites
+    {
+        position:relative;
+        bottom:145px;
+        opacity:0;
+        margin:0;
+        padding:0;
+        width:0px;
+        height:0px;
+    }
+    #activities
+    {
+        padding-left:5%;
+        padding-right:5%;
+    }
+    #allactivities
+    {
+        display:flex;
+        flex-direction: column;
+        height:unset;
+        width:100%;
+    }
+    .activitycard:nth-of-type(1), .activitycard:nth-of-type(2), .activitycard:nth-of-type(3), .activitycard:nth-of-type(4), .activitycard:nth-of-type(5), .activitycard:nth-of-type(6)
+    {
+        height:50.667vw;
+    }
+    .activitycard
+    {
+        display:block;
+        width:100%;
+        background-color:white;      
+        border-radius:24px;
+        color:black;
+        box-shadow:0px 0px 8px 2px #d9d9d9;
+        margin-bottom:25px;
+    }
+    #image_vieux_port, #image_notre_dame_de_la_garde, #image_parc_longchamp, #image_iles_du_frioul, #image_parc_national_des_calanques, #image_fort_de_pomegues
+    {
+        width:100%;
+        height:71%;
+        object-fit:cover;
+        border-top-left-radius: 24px;
+        border-top-right-radius: 24px;
+    }
+    .activitycard h3
+    {
+        margin-left:5%;
+        font-size:calc(15px + 0.260vw);
+    }
+
+    /* 6. Règles du pied de page */
+
+    footer
+    {
+        padding-left:8%;
+        padding-right:8%;
+        padding-top:30px;
+        padding-bottom:30px;
+        margin-top:40px;
+        flex-direction: column;
+    }
+    footer h2
+    {
+        font-size:18px;
+    }
+    footer div
+    {
+        width:100%;
+    }
+    footer li
+    {
+        margin-top:12px;
+        margin-bottom:12px;
+    }
+    footer a
+    {
+        font-size:16px;
+    }
+}
