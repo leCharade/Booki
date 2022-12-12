@@ -1,0 +1,1 @@
+Mon premier projet OpenClassrooms. Celui consiste en la réalisation d'une page HTML à partir d'une maquette, avec un design responsive.
